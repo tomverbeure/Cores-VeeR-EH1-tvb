@@ -1,0 +1,3 @@
+read_verilog -defer -sv veer_conv.v
+hierarchy -top veer_wrapper
+write_cxxrtl veer_sim.cpp
