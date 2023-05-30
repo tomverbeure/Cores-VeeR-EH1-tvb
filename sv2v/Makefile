@@ -70,7 +70,8 @@ veer_sim.cpp: veer_conv.v
 	time yosys -s veer_synth.ys
 
 veer_sim.o: veer_sim.cpp
-	time g++ -I `yosys-config --datdir`/include veer_sim.cpp -o veer_sim.o
+	#time g++ --save-temps -Q -ftime-report-details -c -I `yosys-config --datdir`/include veer_sim.cpp -o veer_sim.o
+	time clang++ -c -I `yosys-config --datdir`/include veer_sim.cpp 
 
 clean:
 	\rm -fr veer_conv.v veer_sim.cpp veer_sim.o
